@@ -6,10 +6,11 @@ const supplierSchema = new mongoose.Schema({
     required: true
   },
   address: String,
-  contactNumber: String,
-  pic: String,
-  picContactNumber: String,
-  picEmailAddress: String,
+  phone: String,
+  website:String,
+  person: String,
+  personPhone: String,
+  personEmail: String,
   items: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Item' // Assuming you have an Item model defined
