@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const apiRoutes = require('./routes/api');
+const serverless =require('serverless-http');
 
 require('dotenv').config()
 
@@ -26,6 +27,9 @@ app.use('/api', apiRoutes);
 
 // Start server
 const port = process.env.PORT || 3000;
+
+export const handler = serverless(app);
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
