@@ -5,12 +5,15 @@ const itemSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  manufacturer: String,
-  specification: {
+  itemBrand: {
+    type: String,
+    default: '',
+  },
+  itemSpecification: {
     type: mongoose.Schema.Types.Mixed,
     default: {}
   },
-  price: {
+  itemPrice: {
     type: String,
     default: '0.00',
     validate: {
@@ -22,24 +25,24 @@ const itemSchema = new mongoose.Schema({
     },
     required: true
   },
-  previousPrice: [{
-    price: {
-      type: String,
-      validate: {
-        validator: function(v) {
-          // Allow 0.00 or any positive number with up to two decimal places
-          return /^0(\.00?)?$|^\d+(\.\d{1,2})?$/.test(v);
-        },
-        message: props => `${props.value} is not a valid price format. Must have two decimal places.`
-      },
-      required: false
-    },
-    date: {
-      type: Date,
-      default: Date.now,
-      required: false
-    }
-  }]
+  // previousPrice: [{
+  //   price: {
+  //     type: String,
+  //     validate: {
+  //       validator: function(v) {
+  //         // Allow 0.00 or any positive number with up to two decimal places
+  //         return /^0(\.00?)?$|^\d+(\.\d{1,2})?$/.test(v);
+  //       },
+  //       message: props => `${props.value} is not a valid price format. Must have two decimal places.`
+  //     },
+  //     required: false
+  //   },
+  //   date: {
+  //     type: Date,
+  //     default: Date.now,
+  //     required: false
+  //   }
+  // }]
 });
 
 const Item = mongoose.model('Item', itemSchema);

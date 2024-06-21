@@ -16,18 +16,13 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     // Implementation for adding a new supplier
     try {
-        const { name, address, phone, website, person, personPhone, personEmail, items } = req.body;
-
+        // const { name, email, phone, website, person, personPhone, personEmail, items } = req.body;
+        const { supplierName, supplierEmail, supplierItem } = req.body;
         // Create a new supplier document
         const newSupplier = new Supplier({
-            name,
-            address,
-            phone,
-            website,
-            person,
-            personPhone,
-            personEmail,
-            items
+            supplierName,
+            supplierEmail,
+            supplierItem
         });
 
         // Save the new supplier to the database
@@ -42,12 +37,12 @@ router.post('/', async (req, res) => {
 // Edit an existing supplier
 router.put('/:id', async (req, res) => {
     // Implementation for editing an existing supplier
-    const { name, address, contactNumber, pic, picContactNumber, picEmailAddress, items } = req.body;
-
+    // const { name, address, contactNumber, pic, picContactNumber, picEmailAddress, items } = req.body;
+    const { supplierName, supplierEmail, supplierItem } = req.body;
   try {
     const updatedSupplier = await Supplier.findByIdAndUpdate(
       req.params.id,
-      { name, address, contactNumber, pic, picContactNumber, picEmailAddress, items },
+      { supplierName, supplierEmail, supplierItem },
       { new: true }
     );
 

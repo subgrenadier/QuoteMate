@@ -1,17 +1,20 @@
 const mongoose = require('mongoose');
 
 const supplierSchema = new mongoose.Schema({
-  name: {
+  supplierName: {
     type: String,
     required: true
   },
-  address: String,
-  phone: String,
-  website:String,
+  supplierEmail: {
+    type: String,
+    required: true
+  },
+  // phone: String,
+  // website:String,
   person: String,
-  personPhone: String,
-  personEmail: String,
-  items: [{
+  // personPhone: String,
+  // personEmail: String,
+  supplierItem: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Item' // Assuming you have an Item model defined
   }]

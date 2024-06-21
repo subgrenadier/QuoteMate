@@ -8,10 +8,10 @@ const supplierRoutes = require('./supplierRoutes');
 const itemRoutes = require('./itemRoutes');
 
 // Mount supplier routes
-router.use('/suppliers', supplierRoutes);
+router.use('/supplier', supplierRoutes);
 
 // Mount item routes
-router.use('/items', itemRoutes);
+router.use('/item', itemRoutes);
 
 module.exports = router;
 
