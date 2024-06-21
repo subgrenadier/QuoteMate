@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
-const apiRoutes = require('./routes/api');
+const apiRoutes = require('../routes/api');
 const serverless = require('serverless-http');
 
 require('dotenv').config()
