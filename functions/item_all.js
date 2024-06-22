@@ -1,8 +1,10 @@
 const Item = require('../models/itemModel');
+const { connectToDatabase } = require('./databaseConnection');
 
 exports.handler = async function(event, context) {
   try {
-    const keyword = event.queryStringParameters.keyword;
+    await connectToDatabase();
+    const keyword = event.queryStringParameters.search;
 
     if (!keyword) {
       const items = await Item.find();

@@ -1,8 +1,10 @@
 const Item = require('../models/itemModel');
 const Supplier = require('../models/supplierModel');
+const { connectToDatabase } = require('./databaseConnection');
 
 exports.handler = async function(event, context) {
   try {
+    await connectToDatabase();
     const itemId = event.pathParameters.id;
 
     const item = await Item.findById(itemId);
